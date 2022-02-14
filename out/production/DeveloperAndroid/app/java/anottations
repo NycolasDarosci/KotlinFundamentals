@@ -1,0 +1,13 @@
+
+  LATENIT
+    estou explicitamente dizendo que eu irei inicializar no futuro
+    lateinit - permite que eu não precise inicializar no começo
+
+  PRIVATE
+    variável visível apenas dentro do objeto.
+    quando instanciamos o objeto, a váriavel não é visivel.
+    Somente compoprtamento e outras variáveis dentro do mesmo objeto podem enxergá-la
+
+  COMPANION OBJECT
+    Propriedades e comportamentos serão da Classe, do molde (não dos objetos)
+
