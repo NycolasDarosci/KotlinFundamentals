@@ -8,6 +8,23 @@
     quando instanciamos o objeto, a váriavel não é visivel.
     Somente compoprtamento e outras variáveis dentro do mesmo objeto podem enxergá-la
 
-  COMPANION OBJECT
-    Propriedades e comportamentos serão da Classe, do molde (não dos objetos)
+  PROPRIEDADES E COMPORTAMENTOS DA CLASSE (NÃO DO OBJETO)
 
+    COMPANION OBJECT
+        Propriedades e comportamentos dentro da Classe, do molde (não dos objetos)
+        Todos os objetos conseguem enxergar o mesmo comportamento, mesma variável
+        e serão compartilhadas entre as mesmas
+
+    CONST
+        - dentro de COMPANION OBJECT
+        ela será uma constante no tempo de COMPILAÇÃO.
+
+        - fora de COMPANION OBJECT
+        ela será uma constante no tempo de EXECUÇÃO
+
+  OBJETOS ÚNICOS
+    Um único objeto que possa ser instanciado, criado (Banco de dados, sistemas de log...)
+
+    OBJECT
+        parecido com classe, porém é instanciada uma única vez.
+        é um ponto de escopo global de acesso ao objeto (SINGLETON)

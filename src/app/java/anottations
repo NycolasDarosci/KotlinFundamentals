@@ -3,15 +3,38 @@
     estou explicitamente dizendo que eu irei inicializar no futuro
     lateinit - permite que eu não precise inicializar no começo
 
+
   PRIVATE
     variável visível apenas dentro do objeto.
     quando instanciamos o objeto, a váriavel não é visivel.
     Somente compoprtamento e outras variáveis dentro do mesmo objeto podem enxergá-la
 
+
   PROPRIEDADES E COMPORTAMENTOS DA CLASSE (NÃO DO OBJETO)
 
     COMPANION OBJECT
-        Propriedades e comportamentos serão da Classe, do molde (não dos objetos)
+        Propriedades e comportamentos dentro da Classe, do molde (não dos objetos)
         Todos os objetos conseguem enxergar o mesmo comportamento, mesma variável
-        e serão compartilhadas entrea as mesmas
+        e serão compartilhadas entre as mesmas
 
+    CONST
+        - dentro de COMPANION OBJECT
+        ela será uma constante no tempo de COMPILAÇÃO.
+
+        - fora de COMPANION OBJECT
+        ela será uma constante no tempo de EXECUÇÃO
+
+
+  CLASSE
+    molde para criar N objetos
+
+    OBJETOS
+        conjunto de prop. e comport. instanciados referentes à uma classe
+
+
+  OBJETOS ÚNICOS
+    Um único objeto que possa ser instanciado, criado (Banco de dados, sistemas de log...)
+
+    OBJECT
+        parecido com classe, porém é instanciada uma única vez.
+        é um ponto de escopo global de acesso ao objeto (SINGLETON)
