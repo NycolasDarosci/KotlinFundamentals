@@ -1,7 +1,7 @@
 package app.java
 
 // extension function
-val User.getFormattedName: String
+val Person.getFormattedName: String
     get() {
         return if (lastName != null) {
             if (firstName != null) {
@@ -16,7 +16,7 @@ val User.getFormattedName: String
 
 
 // extension property
-val User.userFormattedName: String
+val Person.userFormattedName: String
     get() {
         return if (lastName != null) {
             if (firstName != null) {
@@ -30,6 +30,6 @@ val User.userFormattedName: String
     }
 
 // usage:
-val user = User(firstName = "", lastName = "")
+val user = Person(firstName = "", lastName = "")
 val name = user.getFormattedName
 val formattedName = user.userFormattedName

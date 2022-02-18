@@ -1,11 +1,11 @@
 package app.java
 
 /*
-    OBJETO ÚNICO, pode ser instanciado uma única vez
+    OBJETO ÚNICO, é instanciado uma única vez
 */
 object Database {
     var name = "Desconhecido"
-    var test: Test? = null
+    var users: MutableList<User> = mutableListOf()
 
     const val MAX_NAME_LENGTH = 8
 

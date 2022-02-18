@@ -1,87 +1,52 @@
 package app.java
 
 /*
-        VAR AND GETTER, SETTER
-    class java User: had a getter and setters, making its value mutable
-    class Kotlin User: Kotlin keyword for mutable variables is var
+    OPÇÃO 1 - sem valor padrão + palavra constructor explicito
+    class User constructor(var name: String)
 
-    if Java properties had only getters, they would be immutable and Kotlin
-    would have been declared as val. Val is similar to the final keyword in Java
+    OPÇÃO 2 - valor padrão
+    class User(var name: String = "")
 
-
-        NULL VALUE
-    Kotlin explicitly specifies whether a variable can accept a null value.
-    It does by appending(anexando, acrescentando) a '?' to the type declaration
-
-
-        DATA CLASS
-    User class only holds data(contém apenas dados).
-    By marking this class as data, the compiler will automatically create
-    getters and setters. It will also derive equals(), hashCode() and toString()
-
-
-        CONSTRUCTOR
-    Kotlin can have a primary constructor and one or more secondary constructor
-*/
-data class User(var firstName: String?, var lastName: String? )
-
-val user1: User = User(firstName =  null, lastName = "");
-val user2: User = User(lastName = "Marcel", firstName = null); // same as User("null, Marcel")
-
-/*
-        EQUALITY
-
-    * Structural equality '==', calls equals() to determine if two
-    instances are equal
-        val structurally = user1 == user2 //true
-
-    * Referential equality '===', checks if two references point to
-    the same object
-        val referentially = user1 === user2 //false
+    OPÇÃO 3 - espera que o construtor receba o valor (var)
 */
 
-val structurally = user1 == user2 //true
-val referentially = user1 === user2 //false
+class User(var name: String, var isAdmin: Boolean) {
 
+    constructor(name: String) : this(name, isAdmin = false) {
+        println("execute o construtor 2")
+    }
 
-fun main(){
-    println(structurally)
-    println(referentially)
+    constructor() : this("Desconhecido") {
+        println("Execute o construtor 3")
+    }
 
+    // irei inicializar depois, mas se não o fizer, gera um erro
+    lateinit var lastName: String
 
-    user1.firstName = "Nycolas"
-    user1.lastName = "Alberto"
+    // PROPRIEDADES E COMPORTAMENTOS DA CLASSE
+    companion object {
+        var count = 0
 
-    println(user1.firstName)
-    println(user1.lastName)
+        fun resetCount() {
+            println("____ resetting count.. ")
+             count = 0
+         }
+    }
+
+    init {
+        count++
+        println("initializing.. $count")
+    }
+
+    fun output() = println("Meu nome é $name $lastName, sou admin: $isAdmin")
+
+    fun printUpperCase() = println("Olá ${name.uppercase()}")
+
+    fun getNameLength(): Int {
+        return name.length
+    }
 }
 
-/*public class User {
 
-    @Nullable
-    private String firstName;
-    @Nullable
-    private String lastName;
 
-    public User(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-}*/

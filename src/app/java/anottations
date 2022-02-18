@@ -38,3 +38,19 @@
     OBJECT
         parecido com classe, porém é instanciada uma única vez.
         é um ponto de escopo global de acesso ao objeto (SINGLETON)
+
+
+  TIPOS DE CLASSES
+
+      1. CLASSES ANINHADAS
+      (Nested Class)
+
+      2. CLASSES INTERNAS
+      (Inner Class - acesso as propriedades da classe relacionada)
+            Só consegue acessar as propriedades de uma Inner Class se o objeto relacionado
+            (A classe mãe) for instanciada:
+                val kiko = Musician()
+                val guitar = kiko.Guitar()
+
+      3. CLASSES ENUMERADAS
+      (Enum class)

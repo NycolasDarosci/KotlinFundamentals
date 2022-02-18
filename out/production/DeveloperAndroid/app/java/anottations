@@ -3,10 +3,12 @@
     estou explicitamente dizendo que eu irei inicializar no futuro
     lateinit - permite que eu não precise inicializar no começo
 
+
   PRIVATE
     variável visível apenas dentro do objeto.
     quando instanciamos o objeto, a váriavel não é visivel.
     Somente compoprtamento e outras variáveis dentro do mesmo objeto podem enxergá-la
+
 
   PROPRIEDADES E COMPORTAMENTOS DA CLASSE (NÃO DO OBJETO)
 
@@ -21,6 +23,14 @@
 
         - fora de COMPANION OBJECT
         ela será uma constante no tempo de EXECUÇÃO
+
+
+  CLASSE
+    molde para criar N objetos
+
+    OBJETOS
+        conjunto de prop. e comport. instanciados referentes à uma classe
+
 
   OBJETOS ÚNICOS
     Um único objeto que possa ser instanciado, criado (Banco de dados, sistemas de log...)

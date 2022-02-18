@@ -1,7 +1,5 @@
 package app.java
 
-import java.util.ArrayList
-
 /*
         THE RESULT
     init block don't exist because we can
@@ -9,7 +7,7 @@ import java.util.ArrayList
     declaration
 */
 
-val User.formattedName: String
+val Person.formattedName: String
     get() {
         return if (lastName != null) {
             if (firstName != null) {
@@ -24,8 +22,8 @@ val User.formattedName: String
 
 object Repository {
 
-    private val _users = mutableListOf(User("Jane", ""), User("John", null), User("Anne", "Doe"))
-    val users: List<User>
+    private val _users = mutableListOf(Person("Jane", ""), Person("John", null), Person("Anne", "Doe"))
+    val users: List<Person>
         get() = _users
 
     val formattedUserNames: List<String>
@@ -44,9 +42,9 @@ object Repository {
      However, Kotlin also provides the ability to create extension functions.
      These are functions that extend a certain type but are declared outside the type.
 
-        User.formattedName
+        Use.formattedName
 
-val User.formattedName: String
+val Use.formattedName: String
     get() {
         return if(lastName != null){
             if(firstName != null){
@@ -93,19 +91,19 @@ object Repository {
 
     /*
         é null, pois o objeto não foi instanciado no momento da declaração
-        'private var users: MutableList<User>? = null'
+        'private var users: MutableList<Use>? = null'
 
         can use mutableListOf function and provide the list element type.
-        mutableListOf creates an empty list that can hold User objects
+        mutableListOf creates an empty list that can hold Use objects
 
-        'private val users: MutableList<User> = mutableListOf<User>()'
+        'private val users: MutableList<Use> = mutableListOf<Use>()'
 
         como a variavel 'users' já está inicializada, posso remover
         a inicialização do init 'users = ArrayList<Any?>()'
     */
 
     /*
-        fun getUsers(): List<User>? {
+        fun getUsers(): List<Use>? {
            return users
         }
 
@@ -117,8 +115,8 @@ object Repository {
         consumers of the class can acess the list only
         through users
     */
-    private val _users = mutableListOf<User>()
-    val users: List<User>
+    private val _users = mutableListOf<Use>()
+    val users: List<Use>
         get() = _users
 
 
@@ -198,9 +196,9 @@ object Repository {
         is placed in init blocks
     */
     init {
-        val user1 = User("Jane", "")
-        val user2 = User("John", null)
-        val user3 = User(null, "Doe")
+        val user1 = Use("Jane", "")
+        val user2 = Use("John", null)
+        val user3 = Use(null, "Doe")
 
         _users.apply {
             add(user1)
@@ -221,7 +219,7 @@ object Repository {
 public class Repository {
     private static Repository INSTANCE = null;
 
-    private List<User> users = null;
+    private List<Use> users = null;
 
     public static Repository getInstance() {
         if (INSTANCE == null) {
@@ -237,9 +235,9 @@ public class Repository {
     // keeping the constructor private to enforce the usage of getInstance
     private Repository() {
 
-        User user1 = new User("Jane", "");
-        User user2 = new User("John", null);
-        User user3 = new User("Anne", "Doe");
+        Use user1 = new Use("Jane", "");
+        Use user2 = new Use("John", null);
+        Use user3 = new Use("Anne", "Doe");
 
         users = new ArrayList<>();
         users.add(user1);
@@ -247,13 +245,13 @@ public class Repository {
         users.add(user3);
     }
 
-    public List<User> getUsers() {
+    public List<Use> getUsers() {
         return users;
     }
 
     public List<String> getFormattedUserNames() {
         List<String> userNames = new ArrayList<>(users.size());
-        for (User user : users) {
+        for (Use user : users) {
             String name;
 
             if (user.getLastName() != null) {
