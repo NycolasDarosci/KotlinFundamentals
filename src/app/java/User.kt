@@ -10,18 +10,44 @@ package app.java
     OPÇÃO 3 - espera que o construtor receba o valor (var)
 */
 
-class User(var name: String, var isAdmin: Boolean) {
+fun main() {
+    val user1 = User("Jonas")
+    val user2 = User("Jonas")
 
-    constructor(name: String) : this(name, isAdmin = false) {
+    println(user1)
+    println(user2)
+
+    // true
+    println(user1 == user2)
+
+    // se fosse 'class User'
+    //println(user1 == user2) // false
+
+
+    val user3 = User("Alberto", "Sanchez")
+
+    println("______________Funções ocultas_____________")
+    println("utlizando component() - ${user3.component1()}")
+    println("utlizando component() - ${user3.component2()}")
+    println("utlizando component() - ${user3.component3()}")
+
+    // Desestruturação de classe (os atributos precisam seguir a ordem que foi declarado na classe para6543 desestruturâ-lo)
+    val (name, isAdmin, lastName) = user3
+
+    println("meu nome $name $lastName e perfil é admin: $isAdmin")
+
+}
+// Data Class Vs Class
+data class User(var name: String, var isAdmin: Boolean, var lastName: String) {
+
+    constructor(name: String, lastName: String) : this(name, isAdmin = false ,lastName ) {
         println("execute o construtor 2")
     }
 
-    constructor() : this("Desconhecido") {
-        println("Execute o construtor 3")
-    }
+    constructor(name: String) : this(name, "")
 
     // irei inicializar depois, mas se não o fizer, gera um erro
-    lateinit var lastName: String
+    lateinit var last: String
 
     // PROPRIEDADES E COMPORTAMENTOS DA CLASSE
     companion object {
@@ -29,8 +55,8 @@ class User(var name: String, var isAdmin: Boolean) {
 
         fun resetCount() {
             println("____ resetting count.. ")
-             count = 0
-         }
+            count = 0
+        }
     }
 
     init {
@@ -42,9 +68,8 @@ class User(var name: String, var isAdmin: Boolean) {
 
     fun printUpperCase() = println("Olá ${name.uppercase()}")
 
-    fun getNameLength(): Int {
-        return name.length
-    }
+    fun getNameLength() = name.length
+
 }
 
 

@@ -53,4 +53,53 @@
                 val guitar = kiko.Guitar()
 
       3. CLASSES ENUMERADAS
-      (Enum class)
+        (Enum class)
+
+      4. DATA CLASSES
+        classe de dados
+        responsável por trabalhar com os dados concretos, com os conteúdos que estão dentro do objeto e não necessariamente com o objeto em si
+        usamos quando queremos compartilhar esses dados com o banco de dados por exemplo
+
+        EX:
+
+           CLASS
+                class User(var name: String, var isAdmin: Boolean)
+
+                fun main(){
+                    val user1 = User("Jonas")
+                    val user2 = User("Jonas")
+
+                    println(user1) // User@39ba5a14
+                    println(user2) // User@511baa65
+
+                    // false
+                    estou comparando o objeto em si, em memória
+                    println(user1 == user2)
+                }
+
+
+           DATA CLASS
+                class User(var name: String, var isAdmin: Boolean)
+
+                fun main(){
+                    val user1 = User("Jonas")
+                    val user2 = User("Jonas")
+
+                    println(user1) // User(name=Jonas, isAdmin=false)
+                    println(user2) // User(name=Jonas, isAdmin=false)
+
+                    // true
+                    estou comparando o conteúdo dentro de cada objeto
+                    println(user1 == user2)
+                }
+
+      5. DESESTRUTURAÇÃO DE CLASSES
+        Só consigo apenas fazer desestruturação com data classes
+        Desestruturar uma classe é pegar seu objeto e quebrá-lo
+
+        Desestruturação de classe (os atributos precisam seguir a ordem que foi declarado na classe para desestruturâ-lo)
+        val (name, isAdmin, lastName) = user3
+
+            Ex:
+                val user = User("Jonas")
+                val (name, isAdmin) = user

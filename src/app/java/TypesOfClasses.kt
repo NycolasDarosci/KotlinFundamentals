@@ -12,6 +12,12 @@ package app.java
               val guitar = kiko.Guitar()
 
     3. CLASSES ENUMERADAS (Enum)
+
+    4. DATA CLASSES
+
+    5. DESESTRUTURAÇÃO DE CLASSES
+
+    6. FUNÇÕES OCULTAS
 */
 
 class Musician {
@@ -30,11 +36,11 @@ class Musician {
     }
 }
 
-enum class CreditCard(val label: String) {
-    VISA("Visa"),
-    MASTER("Mastercard"),
-    ELO("Elo"),
-    AMEX("American Express")
+enum class CreditCard(val label: String, val discount: Int) {
+    VISA("Visa", 10),
+    MASTER("Mastercard", 5),
+    ELO("Elo", 5),
+    AMEX("American Express", 10)
 }
 
 fun main (){
@@ -47,4 +53,28 @@ fun main (){
     val guitar = kiko.Guitar()
     guitar.desc()
 
+
+    val creditCardAPIName = "master"
+
+    val card = CreditCard.valueOf(creditCardAPIName.uppercase())
+
+    val discount = when(card) {
+        CreditCard.VISA -> "Você recebeu um desconto de ${card.discount}"
+        CreditCard.ELO -> "Você recebeu um desconto de ${card.discount}"
+        else -> "Você está utilizando o cartão ${card.label}"
+    }
+
+    /*
+    val discount = if(card == CreditCard.VISA) {
+        "Você recebeu um desconto de ${card.discount}"
+    }
+    else if (card == CreditCard.ELO) {
+        "Você recebeu um desconto de ${card.discount}"
+    }
+    else {
+        println("Avisa o usuário que o cartão VISA tem desconto")
+        "Você está utilizando o cartão ${card.label}"
+    }
+    */
+    println(discount)
 }

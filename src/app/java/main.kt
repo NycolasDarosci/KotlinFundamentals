@@ -2,8 +2,8 @@ package app.java
 
 fun main(){
     val test1 = User("Mateus")
-    val test2 = User()
-    val test3 = User()
+    val test2 = User("")
+    val test3 = User("")
 
     /*
         ACESSANDO PROPRIEDADES E COMPORTAMENTOS DA CLASSE
