@@ -24,27 +24,32 @@ fun main() {
     //println(user1 == user2) // false
 
 
-    val user3 = User("Alberto", "Sanchez")
+    val user3 = User("Alberto", isAdmin = true, "Sanchez")
 
+    // Desestruturação de classe (os atributos precisam seguir a ordem que foi declarado na classe para desestruturâ-lo)
     println("______________Funções ocultas_____________")
     println("utlizando component() - ${user3.component1()}")
     println("utlizando component() - ${user3.component2()}")
     println("utlizando component() - ${user3.component3()}")
 
-    // Desestruturação de classe (os atributos precisam seguir a ordem que foi declarado na classe para6543 desestruturâ-lo)
     val (name, isAdmin, lastName) = user3
 
     println("meu nome $name $lastName e perfil é admin: $isAdmin")
 
+
 }
+
+
+
 // Data Class Vs Class
 data class User(var name: String, var isAdmin: Boolean, var lastName: String) {
 
-    constructor(name: String, lastName: String) : this(name, isAdmin = false ,lastName ) {
+    constructor(name: String, lastName: String) : this(name, isAdmin = false , lastName = lastName ) {
         println("execute o construtor 2")
     }
 
     constructor(name: String) : this(name, "")
+
 
     // irei inicializar depois, mas se não o fizer, gera um erro
     lateinit var last: String

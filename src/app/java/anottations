@@ -103,3 +103,31 @@
             Ex:
                 val user = User("Jonas")
                 val (name, isAdmin) = user
+
+
+      6. FUNÇÕES OCULTAS
+            - component()
+            - copy()
+
+      7. ESTRUTURA DE DADOS SIMPLES
+            Pair é DATA CLASS
+                com Pair, trabalho com as propriedades em conjunto.
+                Se trabalho com latitude, preciso de uma longitude, se tem eixo x, preciso de eixo y
+
+                    val x = arrayOf(54, 13, 43)
+                    val y = arrayOf(24, 87, 1324)
+
+                    val coordinates = Pair(x, y)
+                    or
+                    val coordinates2 = x to y
+
+                    println(coordinates.first[0]) // 54
+                    println(coordinates.second[0]) // 24
+
+            Triple
+                 val triple = Triple(1, 2, 3)
+                 println("Triple - first: ${triple.first}, second: ${triple.second}, third: ${triple.third}")
+
+
+      8. HERANÇA
+        herdar algo, faz com que um objeto herde comportamentos e propriedades de outro objeto
